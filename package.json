@@ -4,7 +4,9 @@
   "description": "This is a Namaste React app by Sandeep Reddy",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "Sandeep Reddy",
   "license": "ISC",

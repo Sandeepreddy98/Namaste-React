@@ -1,28 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'
-//<h1>Hello from react!</h1>
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// const heading = React.createElement("h1", {id : 'heading'}, "Hello world from React!");// react Object
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
 
-/**
- * <div id = "parent">
- *     <div id = "child">
- *         <h1>I'm a h1 tag</h1>
- *     </div>
- * </div>
-*/
-
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "I'm h1 tag"),
-    React.createElement("h2", {}, "I'm h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I'm h1 tag"),
-    React.createElement("h2", {}, "I'm h2 tag"),
-  ]),
-]);
+// Render using core React
+const heading = React.createElement("h1", { id: "heading" }, "Namaste React");
+// React.createElement is a Object but then later convert it into HTML while rendering
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(heading);
+
+//Render using JSX
+const jsxHeading = (<h1>
+  Namaste React using JSX
+</h1>);
+const rootJSX = ReactDOM.createRoot(document.getElementById("root-jsx"));
+rootJSX.render(jsxHeading);
+
+//Render using React component
+const Title = () => (
+  <h1>Namaste React (functional way)</h1>
+);
+
+const SubTitle = () => (
+  <div id="container">
+  <Title/>
+  <h2>by Akshay Saini</h2>
+  <Title></Title>
+  {"Akshay Saini"}
+  </div>
+)
+
+const rootComponent = ReactDOM.createRoot(document.getElementById("root-component"))
+rootComponent.render(<SubTitle/>)
