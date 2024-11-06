@@ -1,4 +1,4 @@
-{
+const restaurants = {
   "restaurants": [
     {
       "info": {
@@ -1615,3 +1615,5 @@
     }
   ]
 }
+
+export default restaurants
