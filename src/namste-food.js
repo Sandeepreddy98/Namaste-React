@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
-
-import {restaurants} from '../restaurants.json' with {type: "json"}
-
+import HeaderComponent from './components/Header'
+import BodyComponent from "./components/Body";
 
 const AppComponent = () => (
     <div className="app-layout">
