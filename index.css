@@ -62,3 +62,13 @@
     background-color: #f0f0f0;
     margin: 10px;
 }
+
+.button{
+    padding: 0 5px;
+}
+
+.feature-container{
+    display:flex;
+    align-items: center;
+}
+
