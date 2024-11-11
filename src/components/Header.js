@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/url";
 
 const HeaderComponent = () => {
   const [isLoggedIn, setloginStatus] = useState(false);
-
+  
   return (
     <div className="header">
       <div className="logo-container">

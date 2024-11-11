@@ -6,18 +6,21 @@ const BodyComponent = () => {
     const [listOfRecipes,setListOfRecipes] = useState([]) 
     const [filteredRecipes,setfilteredRecipes] = useState([])
 
-    useEffect(async () => {
-      const recipeData = await fetchRecipes();
-      setListOfRecipes(recipeData.recipes);
-      setfilteredRecipes(recipeData.recipes)
+    useEffect(() => {
+      fetchRecipes();
     }, []);
     
     const fetchRecipes = async () => {
-      const recipes = await fetch(
-        `https://dummyjson.com/recipes`
-      )
-      const recipeList = await recipes.json()     
-      return recipeList
+      try{
+        const recipes = await fetch(
+          `https://dummyjson.com/recipes`
+        )
+        const recipeList = await recipes.json()     
+        setListOfRecipes(recipeList.recipes);
+        setfilteredRecipes(recipeList.recipes)
+      }catch(err){
+        console.error('Error fetching recipes :',err)
+      }
     };
 
     //conditional rendering
