@@ -77,3 +77,8 @@
     height: 300;
 }
 
+.user-card{
+    padding: 10px;
+    border: 1px solid;
+}
+
