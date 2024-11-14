@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/url";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 const HeaderComponent = () => {
   const [isLoggedIn, setloginStatus] = useState(false);
-
+  const networkStatus = useNetworkStatus()
   return (
     <div className="header">
       <div className="logo-container">
@@ -12,6 +13,7 @@ const HeaderComponent = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>status : {networkStatus ? '🟢' : '🔴'}</li>
           <li>
             <Link to="/">Home</Link>
           </li>

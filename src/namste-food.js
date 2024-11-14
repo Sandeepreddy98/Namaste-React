@@ -1,12 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from 'react-dom/client';
 import HeaderComponent from './components/Header'
 import BodyComponent from "./components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RecipeDetail from "./components/RecipeDetail";
+import Shimmer from "./components/Shimmer";
+
+const About = lazy(() => import('./components/About'))
 
 const AppComponent = () => (
     <div className="app-layout">
@@ -26,7 +28,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path : '/about',
-                element : <About/>
+                element : <Suspense fallback = {<Shimmer/>}><About/></Suspense>
             },
             {
                 path:'/contact',

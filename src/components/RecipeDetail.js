@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import Shimmer from "./Shimmer"
+import useRecipeInfo from "../utils/useRecipeInfo"
+import { useParams } from "react-router-dom"
 
 const RecipeDetail = () => {
-    const [recipeData,setRecipeData] = useState(null)
     const recipeID = useParams()['recId']
-    useEffect(() => {
-        fetchRecipeData()
-    },[])
-
-    const fetchRecipeData = async () => {
-        const recipesData = await fetch(`https://dummyjson.com/recipes/${recipeID}`)
-        const recipeData = await recipesData.json()
-        setRecipeData(recipeData)
-    }
+    const recipeData = useRecipeInfo(recipeID)
     if(!recipeData) return <Shimmer/>
     const {image,name,reviewCount,prepTimeMinutes,cookTimeMinutes,servings,cuisine,mealType,ingredients,instructions,tags,caloriesPerServing,rating} = recipeData
     

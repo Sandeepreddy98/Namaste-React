@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReceipeCard from "./RecipeCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 const BodyComponent = () => {
     const [listOfRecipes,setListOfRecipes] = useState([]) 
@@ -24,6 +25,10 @@ const BodyComponent = () => {
       }
     };
 
+    const networkStatus = useNetworkStatus()
+    if(!networkStatus){
+      return <div><h1>You're down</h1></div>
+    }
     //conditional rendering
     return !listOfRecipes.length ? (
       <Shimmer />
