@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import ReceipeCard from "./RecipeCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utils/useNetworkStatus";
 
+import DifficultyLevel from "./DifficultyLevel";
+import ReceipeCard from './RecipeCard'
+
 const BodyComponent = () => {
     const [listOfRecipes,setListOfRecipes] = useState([]) 
     const [filteredRecipes,setfilteredRecipes] = useState([])
+    const DifficultyLevelIdentification = DifficultyLevel(ReceipeCard)
 
     useEffect(() => {
       fetchRecipes();
@@ -60,7 +63,7 @@ const BodyComponent = () => {
         </div>
         <div className="res-container">
           {filteredRecipes.map((recipe,index) => (
-            <Link key = {recipe.id} to={`/recipes/${index+1}`}><ReceipeCard recipeData={recipe} /></Link>
+            <Link key = {recipe.id} to={`/recipes/${index+1}`}><DifficultyLevelIdentification recipeData={recipe} /></Link>
           ))}
         </div>
       </div>
