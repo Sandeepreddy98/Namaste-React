@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 
 const useAbout = (userId) => {
-    console.log('usr',userId);
-    
     const [userInfo,setUserInfo] = useState(null)
 
     useEffect(() => {

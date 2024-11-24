@@ -91,3 +91,35 @@
     margin: 5px 10px;
 }
 
+.cusine-category-container{
+    
+}
+
+.cusine-categoty-card{
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.recipe{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px;
+  background-color: #f4f4f4;
+  padding: 10px 10px;
+}
+
+.recipe-img{
+  max-width: 200px;
+  max-height: 160px;
+}
+
+.cusine-layout{
+    border: 2px solid grey;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}

@@ -9,7 +9,7 @@ const RecipeDetail = () => {
     const {image,name,reviewCount,prepTimeMinutes,cookTimeMinutes,servings,cuisine,mealType,ingredients,instructions,tags,caloriesPerServing,rating} = recipeData
     
     return (
-        <div>
+        <div className="de">
             <img className = "recipe-img" src={image} />
             <h1>{name} <p>{caloriesPerServing} calories</p></h1>
             <p>Rating {rating} of {reviewCount}</p>
@@ -41,7 +41,7 @@ const RecipeDetail = () => {
             <ul>
                 {
                 tags.map((tag,index) => {
-                    return <p># {tag},</p>
+                    return <p key={index}># {tag},</p>
                 })
             }
             </ul>

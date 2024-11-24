@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utils/useNetworkStatus";
 
 import DifficultyLevel from "./DifficultyLevel";
 import ReceipeCard from './RecipeCard'
+import userContext from "../utils/userContext";
 
 const BodyComponent = () => {
     const [listOfRecipes,setListOfRecipes] = useState([]) 
@@ -32,6 +33,8 @@ const BodyComponent = () => {
     if(!networkStatus){
       return <div><h1>You're down</h1></div>
     }
+    const {userName,setUserName} =  useContext(userContext)
+    
     //conditional rendering
     return !listOfRecipes.length ? (
       <Shimmer />
@@ -60,6 +63,8 @@ const BodyComponent = () => {
                 setfilteredRecipes(searchedRecipes)
             }}>Search</button>
           </div>
+          <label>User Name : </label>
+          <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)}/>
         </div>
         <div className="res-container">
           {filteredRecipes.map((recipe,index) => (
