@@ -9,6 +9,9 @@ import RecipeDetail from "./components/RecipeDetail";
 import Shimmer from "./components/Shimmer";
 import CuisineLayout from "./components/CuisineLayout";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import WishList from "./components/WishList";
 
 const About = lazy(() => import("./components/About"));
 
@@ -23,12 +26,14 @@ const AppComponent = () => {
     setUserName(data.userName)
   },[])
   return (
+    <Provider store={appStore}>
   <userContext.Provider value={{userName : userName,setUserName}}>
   <div className="app-layout">
     <HeaderComponent />
     <Outlet />
   </div>
   </userContext.Provider>
+  </Provider>
   )
 }
 
@@ -66,6 +71,10 @@ const appRouter = createBrowserRouter([
           },
         ],
       },
+      {
+        path : '/wishlist',
+        element : <WishList/>
+      }
     ],
     errorElement: <Error />,
   },

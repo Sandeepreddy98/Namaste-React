@@ -3,11 +3,14 @@ import { LOGO_URL } from "../utils/url";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utils/useNetworkStatus";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const HeaderComponent = () => {
   const [isLoggedIn, setloginStatus] = useState(false);
   const networkStatus = useNetworkStatus()
   const loggedInUser = useContext(userContext)
+  const items = useSelector((store) => store.wishlist.items)
+  
   
   return (
     <div className="header">
@@ -25,6 +28,9 @@ const HeaderComponent = () => {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/wishlist">Wishlist ({items?.length})</Link>
           </li>
           <button
             className="button"
