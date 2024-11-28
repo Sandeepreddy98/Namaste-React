@@ -1,7 +1,7 @@
 
 const ReceipeCard = (props) => {
     const { image,name, cuisine, rating, mealType, difficulty} = props?.recipeData || {};
-   return  (<div className="res-card">
+   return  (<div className="res-card" data-testid = "resCard">
         <img className="res-logo" src={image}/>
         <h4>{name}</h4>
         <h5>{cuisine}</h5>

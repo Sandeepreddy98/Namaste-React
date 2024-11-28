@@ -17,16 +17,16 @@ const BodyComponent = () => {
     }, []);
     
     const fetchRecipes = async () => {
-      try{
+      // try{
         const recipes = await fetch(
           `https://dummyjson.com/recipes`
         )
         const recipeList = await recipes.json()     
         setListOfRecipes(recipeList.recipes);
         setfilteredRecipes(recipeList.recipes)
-      }catch(err){
-        console.error('Error fetching recipes :',err)
-      }
+      // }catch(err){
+      //   console.error('Error fetching recipes :',err)
+      // }
     };
 
     const networkStatus = useNetworkStatus()
@@ -55,7 +55,7 @@ const BodyComponent = () => {
           </div>
           <div className="search-container">
             <input type="text" id="search-recipe"></input>
-            <button className="btn-search" onClick={() => {
+            <button className="btn-search" data-testid = "searchInput" onClick={() => {
                 const searchedValue = document.getElementById('search-recipe')?.value
                 const searchedRecipes = listOfRecipes.filter((recipe) => {
                     return recipe.name.toLowerCase().includes(searchedValue.toLowerCase())
