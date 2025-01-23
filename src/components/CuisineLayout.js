@@ -1,4 +1,4 @@
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import CuisineCategory from "./CuisineCategory";
 
@@ -35,10 +35,16 @@ const CuisineLayout = () => {
     <Shimmer />
   ) : (
     <div className="cusine-layout">
-    {cuisines.map((cuisine,index) => {
-        return <CuisineCategory key={cuisine.type} cuisine = {cuisine} showItems = {index === showIndex} setShowIndex = {() => setShowIndex(index === showIndex ? -1 : index)}></CuisineCategory>
-
-    })}
+      {cuisines.map((cuisine, index) => {
+        return (
+          <CuisineCategory
+            key={cuisine.type}
+            cuisine={cuisine}
+            showItems={index === showIndex}
+            setShowIndex={() => setShowIndex(index === showIndex ? -1 : index)}
+          ></CuisineCategory>
+        );
+      })}
     </div>
   );
 };

@@ -15,27 +15,26 @@ import WishList from "./components/WishList";
 
 const About = lazy(() => import("./components/About"));
 
-
 const AppComponent = () => {
-  const [userName,setUserName] = useState()
+  const [userName, setUserName] = useState();
 
   useEffect(() => {
     const data = {
-      userName : "Sandeep"
-    }
-    setUserName(data.userName)
-  },[])
+      userName: "Sandeep",
+    };
+    setUserName(data.userName);
+  }, []);
   return (
     <Provider store={appStore}>
-  <userContext.Provider value={{userName : userName,setUserName}}>
-  <div className="app-layout">
-    <HeaderComponent />
-    <Outlet />
-  </div>
-  </userContext.Provider>
-  </Provider>
-  )
-}
+      <userContext.Provider value={{ userName: userName, setUserName }}>
+        <div className="app-layout">
+          <HeaderComponent />
+          <Outlet />
+        </div>
+      </userContext.Provider>
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -72,11 +71,16 @@ const appRouter = createBrowserRouter([
         ],
       },
       {
-        path : '/wishlist',
-        element : <WishList/>
-      }
+        path: "/wishlist",
+        element: <WishList />,
+      },
     ],
     errorElement: <Error />,
+  },
+  {
+    future: {
+      v7_startTransition: true, // Enable the flag
+    },
   },
 ]);
 

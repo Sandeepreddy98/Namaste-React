@@ -7,11 +7,10 @@ import { useSelector } from "react-redux";
 
 const HeaderComponent = () => {
   const [isLoggedIn, setloginStatus] = useState(false);
-  const networkStatus = useNetworkStatus()
-  const loggedInUser = useContext(userContext)
-  const items = useSelector((store) => store.wishlist.items)
-  
-  
+  const networkStatus = useNetworkStatus();
+  const loggedInUser = useContext(userContext);
+  const items = useSelector((store) => store.wishlist.items);
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -19,7 +18,7 @@ const HeaderComponent = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>status : {networkStatus ? '🟢' : '🔴'}</li>
+          <li>status : {networkStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
