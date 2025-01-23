@@ -2,11 +2,13 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is a Namaste React app by Sandeep Reddy",
+  "homepage": "https://github.com/Sandeepreddy98/Namaste-React",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test-watch" : "jest --watch"
+    "test-watch": "jest --watch",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Sandeep Reddy",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "babel-jest": "^29.7.0",
+    "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "parcel": "^2.12.0",
