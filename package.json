@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is a Namaste React app by Sandeep Reddy",
-  "main": "app.js",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
